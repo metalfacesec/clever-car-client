@@ -15,7 +15,7 @@ class Home extends React.Component {
                         <FaMapMarkedAlt style={{ color: "#C3073F", display: 'table', margin: '0 auto' }} size={50} onClick={this.props.mapHandler} />
                     </div>
                     <div className="icon-container col">
-                        <FaClock style={{ color: "#C3073F", display: 'table', margin: '0 auto' }} size={50} />
+                        <FaClock style={{ color: "#C3073F", display: 'table', margin: '0 auto' }} size={50} onClick={this.props.clockHandler} />
                     </div>
                     <div className="icon-container col">
                         <FaMusic style={{ color: "#C3073F", display: 'table', margin: '0 auto' }} size={50} />

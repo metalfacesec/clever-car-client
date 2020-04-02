@@ -4,11 +4,31 @@ import { withGoogleMap, GoogleMap, Marker } from "react-google-maps";
 import socketIOClient from "socket.io-client";
 
 import scriptLoader from 'react-async-script-loader';
+
+const defaultMapOptions = {
+    fullscreenControl: false,
+    draggable: false,
+    mapTypeControl: false,
+    mapTypeControlOptions: false,
+    panControlOptions: false,
+    zoomControlOptions: false,
+    rotateControlOptions: false,
+    streetViewControl: false,
+    scaleControlOptions: false,
+    streetViewControlOptions: false
+};
+
+// backgroundColor, center, clickableIcons, controlSize, disableDefaultUI, disableDoubleClickZoom,
+//  draggable, draggableCursor, draggingCursor, , , gestureHandling,
+//   heading, keyboardShortcuts, , , mapTypeId, maxZoom, minZoom, noClear,
+//    panControl, , restriction, rotateControl, , 
+// scaleControl, , scrollwheel, streetView, , , styles, tilt, zoom, zoomControl,
   
 const MapWithAMarker = withGoogleMap(props =>
     <GoogleMap
         bootstrapURLKeys={{key: process.env.REACT_APP_MAPS_API_KEY, libraries: 'places'}}
         defaultZoom={16}
+        defaultOptions={defaultMapOptions}
         center={{ lat: props.lat, lng: props.lng }}
     >
         <Marker
