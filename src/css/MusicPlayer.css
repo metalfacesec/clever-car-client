@@ -1,0 +1,86 @@
+.music-player-main {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.music-player-container {
+    height: 80px;
+}
+
+.music-player-controls {
+}
+
+.music-player-track-info {
+}
+
+.music-dir-control {
+    border-bottom: 5px solid #C3073F;
+    height: 50px;
+
+    font-size: 20px;
+
+    color: #950740;
+    text-align: center;
+}
+
+.music-track-list {
+    height: calc(100% - 130px);
+
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    align-content: flex-start;
+
+    overflow-y: scroll;
+}
+
+.track-container {
+    margin: 25px;
+    font-weight: bold;
+    font-size: 22px;
+    text-align: center;
+
+    margin-bottom: 0px;
+    
+    color: #950740;
+    height: 50px;
+    flex: 0 95%;
+
+    line-height: 80px;
+}
+
+.music-dir-container {
+    margin: 25px;
+    font-weight: bold;
+    font-size: 22px;
+    text-align: center;
+
+    margin-bottom: 0px;
+    
+    color: #950740;
+    height: 100px;
+    flex: 0 40%;
+  
+    border: 5px solid #C3073F;
+
+    line-height: 80px;
+}
+
+.music-control-button {
+    float: right;
+
+    align-items: start;
+    margin: 15px;
+
+    height: 50px;
+    width: 50px;
+
+    color: #950740;
+}
+.blank {
+    width: 90px;
+}

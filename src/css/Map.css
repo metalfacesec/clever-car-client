@@ -5,3 +5,11 @@
     height: 100%;
     width: 100%;
 }
+
+.back-button {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    height: 40px;
+    width: 40px;
+}

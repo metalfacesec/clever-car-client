@@ -1,3 +1,7 @@
+.vscode
+
+public/music
+
 # Logs
 logs
 *.log

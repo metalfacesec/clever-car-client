@@ -2,7 +2,7 @@ import React from 'react';
 import '../css/Map.css'
 import { withGoogleMap, GoogleMap, Marker } from "react-google-maps";
 import socketIOClient from "socket.io-client";
-
+import { FaArrowAltCircleLeft } from 'react-icons/fa';
 import scriptLoader from 'react-async-script-loader';
 
 const defaultMapOptions = {
@@ -17,12 +17,6 @@ const defaultMapOptions = {
     scaleControlOptions: false,
     streetViewControlOptions: false
 };
-
-// backgroundColor, center, clickableIcons, controlSize, disableDefaultUI, disableDoubleClickZoom,
-//  draggable, draggableCursor, draggingCursor, , , gestureHandling,
-//   heading, keyboardShortcuts, , , mapTypeId, maxZoom, minZoom, noClear,
-//    panControl, , restriction, rotateControl, , 
-// scaleControl, , scrollwheel, streetView, , , styles, tilt, zoom, zoomControl,
   
 const MapWithAMarker = withGoogleMap(props =>
     <GoogleMap
@@ -41,24 +35,26 @@ class Map extends React.Component {
     constructor() {
         super();
         this.state = {
-            response: 0,
-            endpoint: "http://192.168.0.12:3000",
             lat: 0,
             lng: 0
         };
         this.setupSocket = this.setupSocket.bind(this);
     }
     componentDidMount() {
-        const {endpoint} = this.state;
-        const socket = socketIOClient(endpoint);
-        this.setupSocket(socket);
+        const {endpoint} = {
+            response: 0,
+            endpoint: "http://192.168.0.12:3069"
+        };
+        this.socket = socketIOClient(endpoint);
+        this.setupSocket();
     }
-    setupSocket(socket) {
+    componentWillUnmount() {
+        this.socket.close()
+    }
+    setupSocket() {
         var self = this;
-        socket.on("coord_update", function (data) {
-            console.log(data);
+        this.socket.on("coord_update", function (data) {
             data = JSON.parse(data);
-            console.log(data.lat + ' ' + data.lon);
             self.setState({lat: parseFloat(data.lat), lng: parseFloat(data.lon)});
         });
     }
@@ -74,6 +70,9 @@ class Map extends React.Component {
                         mapElement={<div style={{ height: `100%`, width: '100%' }} />}
                     />
                 }
+                <div className="back-button">
+                    <FaArrowAltCircleLeft style={{ color: "#C3073F", display: 'table', margin: '0 auto' }} size={40} onClick={this.props.goHome} />
+                </div>
             </div>
         );
     }

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/Clock.css'
+import '../css/Clock.css';
 import { FaArrowAltCircleLeft } from 'react-icons/fa';
 
 class Clock extends React.Component {
@@ -28,7 +28,7 @@ class Clock extends React.Component {
     }
     render() {
         return (
-            <div className="container">
+            <div className="time-main-container">
                 <div className='time-container'>
                     {this.state.date.toLocaleTimeString()}
                 </div>
